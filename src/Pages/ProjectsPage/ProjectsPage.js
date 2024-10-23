@@ -11,7 +11,7 @@ export default function ProjectsPage() {
         const fetchLikes = async() => {
 
             try {
-                const response = await fetch('http://localhost:4000/likes');
+                const response = await fetch('https://willboyd-info-backend.onrender.com/likes');
 
                 if (response.ok) {
                     const likes = await response.json();
@@ -31,7 +31,7 @@ export default function ProjectsPage() {
     const addLikeToDb = async() => {
 
         try {
-            await fetch('http://localhost:4000/likes', {
+            await fetch('https://willboyd-info-backend.onrender.com/likes', {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'  // Specify content type
