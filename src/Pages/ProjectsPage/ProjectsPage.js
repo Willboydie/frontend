@@ -2,7 +2,6 @@ import styles from './ProjectsPage.module.css'
 import trevor from './sea_otter_curious.jpg';
 import { GoHeartFill } from "react-icons/go";
 import { useEffect, useState } from 'react';
-require('dotenv').config();
 
 
 export default function ProjectsPage() {
@@ -13,7 +12,7 @@ export default function ProjectsPage() {
         const fetchLikes = async() => {
 
             try {
-                const response = await fetch(process.env.SERVER_API_URL);
+                const response = await fetch("http://ec2-44-203-205-58.compute-1.amazonaws.com:4000/likes");
 
                 if (response.ok) {
                     const likes = await response.json();
@@ -33,7 +32,7 @@ export default function ProjectsPage() {
     const addLikeToDb = async() => {
 
         try {
-            await fetch(process.env.SERVER_API_URL, {
+            await fetch("http://ec2-44-203-205-58.compute-1.amazonaws.com:4000/likes", {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'  // Specify content type
